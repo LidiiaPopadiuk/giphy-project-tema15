@@ -2,6 +2,7 @@
   "name": "giphy-project-tema15",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://lidiiapopadiuk.github.io/giphy-project-tema15/",
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
@@ -11,6 +12,7 @@
     "nanoid": "^5.1.6",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
+    "react-icons": "^5.5.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },

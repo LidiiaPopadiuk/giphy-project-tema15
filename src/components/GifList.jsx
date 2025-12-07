@@ -4,6 +4,11 @@ import y from './Gif.module.css'
 
 export class GifList extends Component {
 
+    componentDidCatch(error, info) {
+        console.log('error', error);
+        console.log('info', info);   
+    }
+
     render() {
 
         const stickers = this.props.infoToShow

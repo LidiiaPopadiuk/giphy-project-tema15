@@ -1,11 +1,28 @@
 import { Component } from "react";
 import x from './Gif.module.css'
+import musicPlay from '../music/music.mp3'
+import { SiYoutubemusic } from "react-icons/si";
 
 
 export class GifSearch extends Component {
 
     state = {
-        inputV: '',
+        inputV: 'Welcome',
+        audio: null,
+        musicIs: false,
+    }
+
+    componentDidMount = () => {
+        this.getStickers()
+        console.log('mount');
+
+        const audio = new Audio(musicPlay)
+        this.setState({ audio: audio })
+    }
+
+    componentDidCatch(error, info) {
+        console.log('error', error);
+        console.log('info', info);
     }
 
     gifLinkInfo = () => {
@@ -32,19 +49,33 @@ export class GifSearch extends Component {
             this.props.infoToDo(getStickersToParse)
             document.querySelector('input').value = ''
 
-            // this.setState({inputV: ''})
         } catch (e) {
             console.log(e);
         }
     }
+
+    music = () => {
+        const { audio, musicIs } = this.state
+        if (!musicIs) {
+            audio.play().catch((e) => {
+                console.log('Error music', e);
+            })
+        } else {
+            audio.pause()
+        }
+        this.setState({ musicIs: !musicIs })
+    }
     render() {
         return (
             <div>
-                <h2 className={x.title}>Giphy Search</h2>
+                <h2 className={x.title}>GIPHY SEARCH <span onClick={this.music}>{<SiYoutubemusic className={x.icon} />}</span></h2>
                 <div className={x.divMain}>
                     <input onKeyDown={(e) => {
-                        if (e.key === 'Enter') this.getStickers()
-                    }} onChange={this.inputDataFromClient} id="input" type="text" placeholder="Введіть ваш запит" autocomplete="off"/>
+                        if (e.key === 'Enter') {
+                            e.preventDefault();
+                            this.getStickers()
+                        }
+                    }} onChange={this.inputDataFromClient} id="input" type="text" placeholder="Введіть ваш запит" autocomplete="off" />
                     <button onClick={this.getStickers}>Шукати</button>
                 </div>
             </div>
