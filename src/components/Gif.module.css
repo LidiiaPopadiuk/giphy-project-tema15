@@ -1,0 +1,149 @@
+.title {
+  background-color: #ffd700;
+  padding: 20px 30px;
+  width: 600px;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.subtitle {
+  background-color: #ffd700;
+  font-size: 30px;
+  padding: 50px 60px;
+  width: 400px;
+  border-radius: 10px;
+  margin: 50px auto;
+}
+
+body {
+  background-color: black;
+  padding: 20px 50px;
+}
+
+ul {
+  padding: 30px 0;
+  background-color: #ffd700;
+  list-style: none;
+  border-radius: 10px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+li {
+  background-color: black;
+  border-radius: 10px;
+}
+
+input {
+  padding: 10px 15px;
+  border-radius: 10px;
+  background-color: #ffd700;
+  color: black;
+  font-size: 15px;
+}
+
+input::placeholder {
+    color: black;
+}
+
+input:focus {
+    outline: black;
+}
+
+button {
+  padding: 10px 15px;
+  border-radius: 10px;
+  background-color: #ffd700;
+  font-size: 15px;
+}
+
+.divMain {
+  gap: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* .title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #4a90e2;
+}
+
+.subtitle {
+  text-align: center;
+  color: #888;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}
+
+.searchContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.inputGroup {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.input {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+}
+
+.input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+.button {
+  padding: 0.5rem 1rem;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: #357ab8;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.listItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gifImage {
+  max-width: 200px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+}
+
+.gifImage:hover {
+  transform: scale(1.05);
+} */
