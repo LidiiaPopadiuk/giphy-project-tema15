@@ -6,33 +6,38 @@ export class GifList extends Component {
 
     componentDidCatch(error, info) {
         console.log('error', error);
-        console.log('info', info);   
+        console.log('info', info);
     }
 
     render() {
 
         const stickers = this.props.infoToShow
+        
         if (!stickers || !stickers.data) {
-            return <ul style={{backgroundColor: 'black'}}></ul>
+            return <ul style={{ backgroundColor: 'black' }}></ul>
         }
 
-        if(stickers.data.length === 0) {
+        if (stickers.data.length === 0) {
             return <p className={y.subtitle}>Не знайдено</p>
         }
 
+        const toBtn = this.props.infoBtn
+
         return (
-            <ul>
-                {stickers.data.map(sticker => {
-                    return (
-                        <li key={nanoid()}>
-                            <img src={sticker.images.fixed_height.url} alt="sticker" />
-                        </li>
-                    )
-                })}
-            </ul>
+            <>
+                <ul>
+                    {stickers.data.map(sticker => {
+                        return (
+                            <li key={nanoid()}>
+                                <img src={sticker.images.fixed_height.url} alt="sticker" />
+                            </li>
+                        )
+                    })}
+                </ul>
+                <button onClick={toBtn}>Дивитися більше</button>
+            </>
         )
     }
 }
 
 
- 

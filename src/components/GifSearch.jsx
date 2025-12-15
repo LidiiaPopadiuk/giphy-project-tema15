@@ -3,8 +3,13 @@ import x from './Gif.module.css'
 import musicPlay from '../music/music.mp3'
 import { SiYoutubemusic } from "react-icons/si";
 
+let page = 0
+let limit = 25
 
 export class GifSearch extends Component {
+   
+    lastQuery = 'Welcome'
+    isLoaded = false;
 
     state = {
         inputV: 'Welcome',
@@ -13,7 +18,10 @@ export class GifSearch extends Component {
     }
 
     componentDidMount = () => {
+        if (this.isLoaded) return
+        this.isLoaded = true;
         this.getStickers()
+
         console.log('mount');
 
         const audio = new Audio(musicPlay)
@@ -27,7 +35,7 @@ export class GifSearch extends Component {
 
     gifLinkInfo = () => {
         const thisInputValue = this.state.inputV
-        const gifLink = `https://api.giphy.com/v1/stickers/search?api_key=NXXeh4K8JqfasbcFtX3EhVjPZollKl4D&q=${thisInputValue}&limit=25&offset=0&rating=g&lang=en&bundle=messaging_non_clips`
+        const gifLink = `https://api.giphy.com/v1/stickers/search?api_key=NXXeh4K8JqfasbcFtX3EhVjPZollKl4D&q=${this.lastQuery}&limit=${limit}&offset=${page}&rating=g&lang=en&bundle=messaging_non_clips`
         return gifLink
     }
 
@@ -42,12 +50,20 @@ export class GifSearch extends Component {
 
     getStickers = async () => {
         try {
+            page = 0
+
+            this.lastQuery = this.state.inputV || "Welcome";
+
             const getStikersFetch = await fetch(this.gifLinkInfo())
             const getStickersToParse = await getStikersFetch.json()
             console.log('stickers', getStickersToParse);
 
             this.props.infoToDo(getStickersToParse)
-            document.querySelector('input').value = ''
+            this.props.infobtnSearch(this.addPage)
+
+            console.log('look', this.props.infoToDo);
+
+            this.setState({inputV: ''})
 
         } catch (e) {
             console.log(e);
@@ -65,7 +81,17 @@ export class GifSearch extends Component {
         }
         this.setState({ musicIs: !musicIs })
     }
+
+    addPage = async () => {
+        page += limit
+
+        const getStickersFetch = await fetch(this.gifLinkInfo())
+        const getStickersToParse = await getStickersFetch.json()
+
+        this.props.infoToDo(getStickersToParse)
+    }
     render() {
+        // this.props.infobtnSearch(this.addPage)
         return (
             <div>
                 <h2 className={x.title}>GIPHY SEARCH <span onClick={this.music}>{<SiYoutubemusic className={x.icon} />}</span></h2>
@@ -75,11 +101,10 @@ export class GifSearch extends Component {
                             e.preventDefault();
                             this.getStickers()
                         }
-                    }} onChange={this.inputDataFromClient} id="input" type="text" placeholder="Введіть ваш запит" autocomplete="off" />
+                    }} value={this.state.inputV} onChange={this.inputDataFromClient} id="input" type="text" placeholder="Введіть ваш запит" autoComplete="off" />
                     <button onClick={this.getStickers}>Шукати</button>
                 </div>
             </div>
         )
     }
 }
-
