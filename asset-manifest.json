@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/giphy-project-tema15/static/css/main.ff3b4198.css",
-    "main.js": "/giphy-project-tema15/static/js/main.68481a02.js",
+    "main.js": "/giphy-project-tema15/static/js/main.cbb94331.js",
     "static/media/music.mp3": "/giphy-project-tema15/static/media/music.c92d380d125e3aa2c8e2.mp3",
     "index.html": "/giphy-project-tema15/index.html",
     "main.ff3b4198.css.map": "/giphy-project-tema15/static/css/main.ff3b4198.css.map",
-    "main.68481a02.js.map": "/giphy-project-tema15/static/js/main.68481a02.js.map"
+    "main.cbb94331.js.map": "/giphy-project-tema15/static/js/main.cbb94331.js.map"
   },
   "entrypoints": [
     "static/css/main.ff3b4198.css",
-    "static/js/main.68481a02.js"
+    "static/js/main.cbb94331.js"
   ]
 }
